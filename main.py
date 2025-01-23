@@ -83,10 +83,10 @@ def work(te):
 def work_basic(path, te, tg):
 	for cell in path:
 		goto(cell[0], cell[1])
-		if get_entity_type() == None:
-			plant(te)
 		if get_ground_type() != tg:
 			till()
+		if get_entity_type() == None:
+			plant(te)
 	for cell in path:
 		goto(cell[0], cell[1])
 		work(te)
@@ -133,7 +133,7 @@ while True:
 			if Entities.Pumpkin != get_entity_type():
 				harvest() # Make sure its cleared
 		work_pumpkin(path)
-		goto(0, 0) # Save check ???
+		goto(0, 0) # All pumpkins grown
 		harvest()
 	else:
 		work_basic(path, itemType, groundType)
